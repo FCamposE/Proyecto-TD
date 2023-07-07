@@ -14,10 +14,15 @@ public class InfiniteWaveSpawner : MonoBehaviour
     private int numEnemiesPerWave = 4;
     private float timeBetweenEnemies = 5f;*/
 
-    public GameObject enemyPrefab;
+    //public GameObject enemyPrefab;
+    public GameObject[] listaEnemies;
+    public List<int> indexEnemies;
     public int enemiesPerWave = 10;
     public float timeBetweenEnemies = 1f;
     public float timeBetweenWaves = 5f;
+
+    private int oleadaActual;
+    public int oleadasParaNuevoEnemigo = 2;
 
 
     /*private float enemySpeedIncrease = 0.5f;
@@ -25,11 +30,16 @@ public class InfiniteWaveSpawner : MonoBehaviour
 
 
     private int currentWave = 0;
+    private int acEnemies;
+    private int maxTypeEnemies = 2;//maximo son 2 ahora
 
     // Start is called before the first frame update
     void Start()
     {
         //StartNextWave();
+        indexEnemies.Add(0);
+        oleadaActual = 1;
+        acEnemies = 0;
         StartCoroutine(StartWave());
         //nextDifficultyIncreaseTime = Time.time + difficultyIncreaseInterval;
     }
@@ -59,14 +69,31 @@ public class InfiniteWaveSpawner : MonoBehaviour
             currentWave++;
             //Debug.Log("Starting Wave " + currentWave);
 
-            for (int i = 0; i < enemiesPerWave; i++)
-            {
-                Instantiate(enemyPrefab, transform.position, transform.rotation);
-                yield return new WaitForSeconds(timeBetweenEnemies);
+            Debug.Log("Oleada:" + oleadaActual);
+
+            if (oleadaActual % oleadasParaNuevoEnemigo == 0){
+                acEnemies++;
+                if (indexEnemies.Count >= maxTypeEnemies)
+                {
+                    Debug.Log("Maximo de tipo de enemigos alcanzado");
+                    //return;
+                }else
+                {
+                    indexEnemies.Add(acEnemies);
+                    Debug.Log("Se añadio enemigo: " + (acEnemies) );
+                }
+
             }
 
-            yield return new WaitForSeconds(timeBetweenWaves);
-            enemiesPerWave += 1;
+            for (int i = 0; i < enemiesPerWave; i++){
+                    int indexEnemyRandom = indexEnemies[Random.Range(0, indexEnemies.Count)];
+                    Instantiate(listaEnemies[indexEnemyRandom], transform.position, transform.rotation);
+                    yield return new WaitForSeconds(timeBetweenEnemies);
+                }
+
+                yield return new WaitForSeconds(timeBetweenWaves);
+                enemiesPerWave += 1;
+                oleadaActual++;
             //IncreaseDifficulty();
         }
     }
