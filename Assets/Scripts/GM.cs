@@ -8,8 +8,13 @@ public class GM : MonoBehaviour
 {
     public Text txtCoins;
     public Text txtWave;
-    public Text txtLP;
     public Text timeText;
+
+    public Text txtLP;
+    public Image imgCorazon;
+    public Transform posContainerCorazon;
+    public int maxCorazones = 3;
+    private List<Image> corazones = new List<Image>();
 
     public AudioSource audioSource;
     public AudioClip soundClip;
@@ -29,6 +34,12 @@ public class GM : MonoBehaviour
 
         audioSource.clip = soundClip;
         audioSource.Play();
+
+        for (int i = 0; i < maxCorazones; i++)
+        {
+            Image nuevoCorazon = Instantiate(imgCorazon, posContainerCorazon);
+            corazones.Add(nuevoCorazon);
+        }
     }
 
     // Update is called once per frame
@@ -55,8 +66,25 @@ public class GM : MonoBehaviour
     }
     public void DecreaseLP(){
         lp -= 1;
+        actualizarCorazones(lp);
         if(lp <= 0){
             SceneManager.LoadScene("Init");
+        }
+    }
+
+    public void actualizarCorazones(int vidasRestantes){
+        while (corazones.Count < maxCorazones)
+        {
+            Image nuevoCorazon = Instantiate(imgCorazon, posContainerCorazon);
+            corazones.Add(nuevoCorazon);
+        }
+
+        for (int i = 0; i < corazones.Count; i++)
+        {
+            if (i<vidasRestantes)
+                corazones[i].gameObject.SetActive(true);
+            else
+                corazones[i].gameObject.SetActive(false);
         }
     }
 }

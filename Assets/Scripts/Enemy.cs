@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     private bool isDie = false;
 
+    public int enemyIndex;
+
     private int currentPointIndex = 0;
 
     private GM gameManager;
@@ -39,7 +41,7 @@ public class Enemy : MonoBehaviour
     {
         if (isDie)
         {
-            // Detener el movimiento del enemigo si está muerto
+            // Detener el movimiento del enemigo si estï¿½ muerto
             speed = 0;
             return;
         }
@@ -86,9 +88,24 @@ public class Enemy : MonoBehaviour
         this.enabled = false;
 
         // Realizar acciones adicionales al morir
-        gameManager.AddCoins(10);
+        switch (enemyIndex)
+        {
+            case 1: gameManager.AddCoins(10);
+            break;
+            case 2: gameManager.AddCoins(15);
+            break;
+            case 3: gameManager.AddCoins(20);
+            break;
+            case 4: gameManager.AddCoins(25);
+            break;
+            case 5: gameManager.AddCoins(30);
+            break;
+            default: gameManager.AddCoins(35);;
+            break;
+        }
+        //gameManager.AddCoins(10);
 
-        // Destruir el objeto después de un tiempo (opcional)
+        // Destruir el objeto despuï¿½s de un tiempo (opcional)
         Destroy(gameObject, 1.3f);
     }
 
