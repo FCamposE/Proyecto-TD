@@ -23,6 +23,8 @@ public class Enemy : MonoBehaviour
 
     private GM gameManager;
 
+    private SpriteRenderer sr;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,8 @@ public class Enemy : MonoBehaviour
         GameObject wp = GameObject.Find("Waypoints");
         movementPoints = wp.GetComponentsInChildren<Transform>(true);
         movementPoints = movementPoints.Where(t => t.gameObject != wp).ToArray();
+
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -52,6 +56,11 @@ public class Enemy : MonoBehaviour
         }
 
         transform.position = Vector3.MoveTowards(transform.position, movementPoints[currentPointIndex].position, speed * Time.deltaTime);
+
+        if (transform.position.x < movementPoints[currentPointIndex].position.x)
+            sr.flipX = false;
+        else if (transform.position.x > movementPoints[currentPointIndex].position.x)
+            sr.flipX = true;
 
         /*if (currentPointIndex == movementPoints.Length-1)
         {
@@ -91,16 +100,22 @@ public class Enemy : MonoBehaviour
         switch (enemyIndex)
         {
             case 1: gameManager.AddCoins(10);
+            gameManager.AddPuntaje(20);
             break;
             case 2: gameManager.AddCoins(15);
+            gameManager.AddPuntaje(30);
             break;
             case 3: gameManager.AddCoins(20);
+            gameManager.AddPuntaje(40);
             break;
             case 4: gameManager.AddCoins(25);
+            gameManager.AddPuntaje(50);
             break;
             case 5: gameManager.AddCoins(30);
+            gameManager.AddPuntaje(60);
             break;
-            default: gameManager.AddCoins(35);;
+            default: gameManager.AddCoins(35);
+            gameManager.AddPuntaje(70);
             break;
         }
         //gameManager.AddCoins(10);

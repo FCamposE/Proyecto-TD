@@ -75,7 +75,7 @@ public class GM : MonoBehaviour
         lp -= 1;
         actualizarCorazones(lp);
         if(lp <= 0){
-            SceneManager.LoadScene("Init");
+            SceneManager.LoadScene("GameOver");
         }
     }
 

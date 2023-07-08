@@ -256,7 +256,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1394158993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ab7218c4e899d349ba7c7cccc4b66e0, type: 3}
+  m_Script: {fileID: 11500000, guid: c5bc657d5e2dadf46b14a03c9a495121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameOver: {fileID: 1394158993}
@@ -434,7 +434,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Prototype
+          m_StringArgument: niveles
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1467397698
