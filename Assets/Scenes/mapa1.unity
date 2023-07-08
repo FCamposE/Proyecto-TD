@@ -222,7 +222,7 @@ RectTransform:
   - {fileID: 1265078160}
   - {fileID: 1057952638}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1014,7 +1014,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -239.4, y: 43.700012}
+  m_AnchoredPosition: {x: -239.40002, y: 43.700012}
   m_SizeDelta: {x: 180, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1057952639
@@ -1225,7 +1225,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -55.200012, y: 19.199982}
+  m_AnchoredPosition: {x: -55.200012, y: 19.199951}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1265078161
@@ -1436,7 +1436,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6365919626830972898, guid: 5424facd64f82ad459bc3425dead5a79, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6365919626830972898, guid: 5424facd64f82ad459bc3425dead5a79, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1493,7 +1493,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6365919626830972898, guid: 5424facd64f82ad459bc3425dead5a79, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6365919626830972898, guid: 5424facd64f82ad459bc3425dead5a79, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1610,7 +1610,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listaEnemies:
   - {fileID: 4015833356832663878, guid: 581967ace88631149b9365758390dc4d, type: 3}
-  - {fileID: 3723618981264919320, guid: 08993f6f29955b94288b30bdb3c608fe, type: 3}
+  - {fileID: 3375539772433801834, guid: d59784ff51bada84d83cadf019b6489e, type: 3}
+  - {fileID: 2554581773848194361, guid: 03e7ba4929f168a4f8863134d730cdde, type: 3}
+  - {fileID: 6965552633576429122, guid: 45a1c02e36dfa764c87eeadb0760c11d, type: 3}
+  - {fileID: 4834925099835681048, guid: 97b35140f1e63a346b69610c6c6f365a, type: 3}
   indexEnemies: 
   enemiesPerWave: 2
   timeBetweenEnemies: 2

@@ -31,7 +31,7 @@ public class InfiniteWaveSpawner : MonoBehaviour
 
     private int currentWave = 0;
     private int acEnemies;
-    private int maxTypeEnemies = 2;//maximo son 2 ahora
+    private int maxTypeEnemies = 5;//maximo son 5
 
     // Start is called before the first frame update
     void Start()
@@ -69,7 +69,7 @@ public class InfiniteWaveSpawner : MonoBehaviour
             currentWave++;
             //Debug.Log("Starting Wave " + currentWave);
 
-            Debug.Log("Oleada:" + oleadaActual);
+            //Debug.Log("Oleada:" + oleadaActual);
 
             if (oleadaActual % oleadasParaNuevoEnemigo == 0){
                 acEnemies++;
