@@ -26,6 +26,7 @@ public class CreateTurret : MonoBehaviour
         {
             BuildTurret();
             gameManager.DecreaseCoins(turretPrice);
+            gameManager.AddPuntaje(20);
         }else{
             Debug.Log("No tienes recursos suficientes");
         }

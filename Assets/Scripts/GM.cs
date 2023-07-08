@@ -10,6 +10,8 @@ public class GM : MonoBehaviour
     public Text txtWave;
     public Text timeText;
 
+    public Text txtPuntaje;
+
     public Text txtLP;
     public Image imgCorazon;
     public Transform posContainerCorazon;
@@ -25,12 +27,15 @@ public class GM : MonoBehaviour
 
     private float elapsedTime;
     // Start is called before the first frame update
+
+    private int puntos;
     void Start()
     {
         iws = FindObjectOfType<InfiniteWaveSpawner>();
         coins = 300;
         elapsedTime = 0f;
         lp = 3;
+        puntos = 0;
 
         audioSource.clip = soundClip;
         audioSource.Play();
@@ -54,6 +59,8 @@ public class GM : MonoBehaviour
         string seconds = (elapsedTime % 60).ToString("00");
 
         timeText.text = "Tiempo: " + minutes + ":" + seconds;
+
+        txtPuntaje.text = "Puntaje: " + puntos.ToString();
     }
     public int getCoins(){
         return coins;
@@ -70,6 +77,14 @@ public class GM : MonoBehaviour
         if(lp <= 0){
             SceneManager.LoadScene("Init");
         }
+    }
+
+    public int getPuntaje(){
+        return puntos;
+    }
+
+    public void AddPuntaje(int puntos){
+        this.puntos += puntos;
     }
 
     public void actualizarCorazones(int vidasRestantes){
