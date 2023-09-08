@@ -77,7 +77,7 @@ public class Enemy : MonoBehaviour
         {
             Die();
         }
-        
+
         /*if (currentHealth <= 0)
         {
             // El enemigo ha sido destruido
